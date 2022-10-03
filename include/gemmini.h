@@ -5679,6 +5679,7 @@ static void tiled_conv_A_stride_auto(
         conv_3_lib_Context *ctxt;
         conv_3(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 28 & out_channels == 128 & stride == 2) {
+        printf("calling conv_13\n");
         conv_13_lib_Context *ctxt;
         conv_13(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 28 & out_channels == 128 & stride == 1) {
@@ -5686,6 +5687,7 @@ static void tiled_conv_A_stride_auto(
         conv_17_lib_Context *ctxt;
         conv_17(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 14 & out_channels == 256 & stride == 2) {
+        printf("calling conv_26\n");
         conv_26_lib_Context *ctxt;
         conv_26(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 14 & out_channels == 256 & stride == 1) {
@@ -5693,12 +5695,15 @@ static void tiled_conv_A_stride_auto(
         conv_30_lib_Context *ctxt;
         conv_30(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 7 & out_channels == 512 & stride == 2) {
+        printf("calling conv_45\n");
         conv_45_lib_Context *ctxt;
         conv_45(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 7 & out_channels == 2048 & stride == 2) {
+        printf("calling conv_47\n");
         conv_47_lib_Context *ctxt;
         conv_47(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 7 & out_channels == 512 & stride == 1) {
+        printf("calling conv_49\n");
         conv_49_lib_Context *ctxt;
         conv_49(ctxt, output, bias, input, weights, act_, &c_scale);
     } else {
