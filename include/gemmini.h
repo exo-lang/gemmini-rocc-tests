@@ -5660,7 +5660,7 @@ static void tiled_conv_A_stride_auto(
     float c_scale = (float) scale;
     bool act_    = (bool) act;
 
-    if (true) {
+    if (false) {
         printf("Calling original conv auto\n");
         orig_tiled_conv_A_stride_auto(batch_size, in_dim, in_channels, out_channels,
                 out_dim, stride, input_dilation, kernel_dilation, padding, kernel_dim,
