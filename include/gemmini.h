@@ -1888,39 +1888,37 @@ static void tiled_matmul_auto(size_t dim_I, size_t dim_J, size_t dim_K,
     //gemmini_flush(0);
     //gemmini_fence();
 
-    /*
     if (dim_I == 512 && dim_J == 512 && dim_K == 512) {
       // 512x512x512
-      //printf("Calling 512 matmul\n");
+      printf("Calling 512 matmul\n");
       matmul_512x512x512(ctxt, &c_scale, act_, A, B, C);
     } else if (dim_I == 12544 && dim_J == 256 && dim_K == 64) {
       // matmul_4
-      //printf("Calling matmul_4\n");
+      printf("Calling matmul_4\n");
       matmul_4(ctxt, &c_scale, act_, A, B, C);
     } else if (dim_I == 12544 && dim_J == 64 && dim_K == 256) {
       // matmul_6
-      //printf("Calling matmul_6\n");
+      printf("Calling matmul_6\n");
       matmul_6(ctxt, &c_scale, act_, A, B, C);
     } else if (dim_I == 3136 && dim_J == 512 && dim_K == 128) {
       // matmul_14
-      //printf("Calling matmul_14\n");
+      printf("Calling matmul_14\n");
       matmul_14(ctxt, &c_scale, act_, A, B, C);
     } else if (dim_I == 3136 && dim_J == 128 && dim_K == 512) {
       // matmul_16
-      //printf("Calling matmul_16\n");
+      printf("Calling matmul_16\n");
       matmul_16(ctxt, &c_scale, act_, A, B, C);
     } else if (dim_I == 784 && dim_J == 1024 && dim_K == 256) {
       // matmul_27
-      //printf("Calling matmul_27\n");
+      printf("Calling matmul_27\n");
       matmul_27(ctxt, &c_scale, act_, A, B, C);
     } else {
       printf("Calling original matmul auto\n");
-      */
       orig_tiled_matmul_auto(dim_I, dim_J, dim_K, A, B, D, C, stride_A, stride_B, stride_D, stride_C,
                              A_scale_factor, B_scale_factor, D_scale_factor, act, scale,
                              relu6_shift, repeating_bias, transpose_A, transpose_B, full_C, low_D,
                              weightA, tiled_matmul_type);
-    //}
+    }
 }
 
 
@@ -5663,7 +5661,7 @@ static void tiled_conv_A_stride_auto(
     bool act_    = (bool) act;
 
     if (true) {
-        //printf("Calling original conv auto\n");
+        printf("Calling original conv auto\n");
         orig_tiled_conv_A_stride_auto(batch_size, in_dim, in_channels, out_channels,
                 out_dim, stride, input_dilation, kernel_dilation, padding, kernel_dim,
                 wrot180, trans_output_1203, trans_input_3120, trans_weight_1203, trans_weight_0132,
@@ -5677,21 +5675,21 @@ static void tiled_conv_A_stride_auto(
                 wrot180, trans_output_1203, trans_input_3120, trans_weight_1203, trans_weight_0132,
                 input, weights, bias, output, act, scale, relu6_shift, pool_size, pool_stride, pool_padding, tiled_conv_type);
     } else if (out_dim == 56 & out_channels == 64 & stride == 1) {
-        //printf("calling conv_3\n");
+        printf("calling conv_3\n");
         conv_3_lib_Context *ctxt;
         conv_3(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 28 & out_channels == 128 & stride == 2) {
         conv_13_lib_Context *ctxt;
         conv_13(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 28 & out_channels == 128 & stride == 1) {
-        //printf("calling conv_17\n");
+        printf("calling conv_17\n");
         conv_17_lib_Context *ctxt;
         conv_17(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 14 & out_channels == 256 & stride == 2) {
         conv_26_lib_Context *ctxt;
         conv_26(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 14 & out_channels == 256 & stride == 1) {
-        //printf("calling conv_30\n");
+        printf("calling conv_30\n");
         conv_30_lib_Context *ctxt;
         conv_30(ctxt, output, bias, input, weights, act_, &c_scale);
     } else if (out_dim == 7 & out_channels == 512 & stride == 2) {
