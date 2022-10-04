@@ -3886,20 +3886,6 @@ static void orig_tiled_conv_A_stride_auto(
         tiled_conv_type);
 }
 
-typedef struct conv_13_lib_Context { 
-
-} conv_13_lib_Context;
-struct systl_win_1i32{
-    int32_t *data;
-    int_fast32_t strides[1];
-};
-struct systl_win_1i8{
-    int8_t *data;
-    int_fast32_t strides[1];
-};
-
-
-
 
 
 #define conv_on_cpu_stride_1  conv_on_cpu_stride_1_
@@ -3945,8 +3931,6 @@ struct systl_win_1i8{
 #define clamp clamp___
 #define ConfigLoadAcc ConfigLoadAcc___
 #include "conv_17_lib.c"
-
-
 
 static void tiled_conv_A_stride_auto(
         int batch_size, int in_dim, int in_channels,
@@ -4010,21 +3994,7 @@ static void tiled_conv_A_stride_auto(
     float c_scale = (float) scale;
     bool act_    = (bool) act;
 
-    if (false) {
-        printf("Calling original conv auto\n");
-        orig_tiled_conv_A_stride_auto(batch_size, in_dim, in_channels, out_channels,
-                out_dim, stride, input_dilation, kernel_dilation, padding, kernel_dim,
-                wrot180, trans_output_1203, trans_input_3120, trans_weight_1203, trans_weight_0132,
-                input, weights, bias, output, act, scale, relu6_shift, pool_size, pool_stride, pool_padding, tiled_conv_type);
-        return;
-    }
-    if (out_dim == 112) {
-        printf("Calling original conv auto\n");
-        orig_tiled_conv_A_stride_auto(batch_size, in_dim, in_channels, out_channels,
-                out_dim, stride, input_dilation, kernel_dilation, padding, kernel_dim,
-                wrot180, trans_output_1203, trans_input_3120, trans_weight_1203, trans_weight_0132,
-                input, weights, bias, output, act, scale, relu6_shift, pool_size, pool_stride, pool_padding, tiled_conv_type);
-    } else if (out_dim == 56 & out_channels == 64 & stride == 1) {
+    if (out_dim == 56 & out_channels == 64 & stride == 1) {
         printf("calling conv_3\n");
         conv_3_lib_Context *ctxt;
         conv_3(ctxt, output, bias, input, weights, act_, &c_scale);
@@ -4037,7 +4007,11 @@ static void tiled_conv_A_stride_auto(
         conv_30_lib_Context *ctxt;
         conv_30(ctxt, output, bias, input, weights, act_, &c_scale);
     } else {
-        printf("unknown conv size!!\n");
+        printf("Calling original conv auto\n");
+        orig_tiled_conv_A_stride_auto(batch_size, in_dim, in_channels, out_channels,
+                out_dim, stride, input_dilation, kernel_dilation, padding, kernel_dim,
+                wrot180, trans_output_1203, trans_input_3120, trans_weight_1203, trans_weight_0132,
+                input, weights, bias, output, act, scale, relu6_shift, pool_size, pool_stride, pool_padding, tiled_conv_type);
     }
 }
 
