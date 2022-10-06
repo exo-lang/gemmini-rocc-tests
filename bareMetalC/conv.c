@@ -10,37 +10,94 @@
 
 #ifndef BAREMETAL
 
+#ifndef BATCH_SIZE
 #define BATCH_SIZE 4
+#endif
+
+#ifndef IN_ROW_DIM
 #define IN_ROW_DIM 224
+#endif
+
+#ifndef IN_COL_DIM
 #define IN_COL_DIM 224
+#endif
+
+#ifndef IN_CHANNELS
 #define IN_CHANNELS 3
+#endif
+
+#ifndef OUT_CHANNELS
 #define OUT_CHANNELS 32
+#endif
+
+#ifndef KERNEL_DIM
 #define KERNEL_DIM 3
+#endif
+
+#ifndef PADDING
 #define PADDING 1
+#endif
+
+#ifndef STRIDE
 #define STRIDE 2
+#endif
 
 #else
 
 #ifdef FAST
 
+#ifndef IN_ROW_DIM
 #define IN_ROW_DIM 9
+#endif
+
+#ifndef IN_COL_DIM
 #define IN_COL_DIM 9
+#endif
+
+#ifndef IN_CHANNELS
 #define IN_CHANNELS 5
+#endif
+
+#ifndef OUT_CHANNELS
 #define OUT_CHANNELS 7
+#endif
 
 #else
 
+#ifndef IN_ROW_DIM
 #define IN_ROW_DIM 17
+#endif
+
+#ifndef IN_COL_DIM
 #define IN_COL_DIM 17
+#endif
+
+#ifndef IN_CHANNELS
 #define IN_CHANNELS 18
+#endif
+
+#ifndef OUT_CHANNELS
 #define OUT_CHANNELS 19
+#endif
 
 #endif
 
+#ifndef BATCH_SIZE
 #define BATCH_SIZE 2
+#endif
+
+#ifndef KERNEL_DIM
 #define KERNEL_DIM 3
+#endif
+
+#ifndef PADDING
 #define PADDING 1
+#endif
+
+#ifndef STRIDE
 #define STRIDE 2
+#endif
+
 
 #endif
 
